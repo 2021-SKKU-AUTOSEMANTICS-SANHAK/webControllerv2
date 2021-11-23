@@ -1,0 +1,3 @@
+[submodule "main/People_Count"]
+	path = people_counting
+	url = https://github.com/2021-SKKU-AUTOSEMANTICS-SANHAK/Yolov5_DeepSort_Pytorch
