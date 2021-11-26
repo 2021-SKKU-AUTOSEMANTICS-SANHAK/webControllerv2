@@ -4,7 +4,7 @@ import time
 
 sys.path.append('/home/hhr/sehwan/webControllerv2/people_counting')
 from flask import Flask, render_template, request, jsonify
-from people_counting.run_for_flask import run
+from Yolov5_DeepSort_Pytorch.run_for_flask import run
 app = Flask(__name__)
 
 
