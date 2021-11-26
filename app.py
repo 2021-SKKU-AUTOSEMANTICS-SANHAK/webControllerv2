@@ -1,8 +1,6 @@
 import json
-import sys
 import time
 
-sys.path.append('/home/hhr/sehwan/webControllerv2/people_counting')
 from flask import Flask, render_template, request, jsonify
 from Yolov5_DeepSort_Pytorch.run_for_flask import run
 app = Flask(__name__)
@@ -28,7 +26,7 @@ def query():
     time.sleep(2)
     return jsonify({"result" : data})
 
-@app.route('/people_counting.output.heatmap')
+
 @app.route('/')
 def hello_world():
     return render_template("index.html")
