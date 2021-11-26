@@ -59,6 +59,7 @@ $('#btn').click(function(){
       success:function(json){
           console.log("data pass success", json);
           setSpinner(false);
+          $('.output-wrapper').show();
       },
       error:function(){
           alert('data fail');

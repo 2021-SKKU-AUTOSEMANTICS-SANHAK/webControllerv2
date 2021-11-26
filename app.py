@@ -1,5 +1,8 @@
 import json
+import sys
+import time
 
+sys.path.append('/home/hhr/sehwan/webControllerv2/people_counting')
 from flask import Flask, render_template, request, jsonify
 from people_counting.run_for_flask import run
 app = Flask(__name__)
@@ -22,8 +25,10 @@ def query():
         videos_num=2,
         resolution='640'
     )
+    time.sleep(2)
     return jsonify({"result" : data})
 
+@app.route('/people_counting.output.heatmap')
 @app.route('/')
 def hello_world():
     return render_template("index.html")

@@ -19,7 +19,7 @@
 
   <section>
     <div class="start-button">
-{#      <button id ="btn" type="button" name="button">Start</button>#}
+<!--{#      <button id ="btn" type="button" name="button">Start</button>#}-->
       <div id="btn">
           <span>Start</span>
           <div class="spinner-border text-primary" role="status">
@@ -27,72 +27,78 @@
           </div>
       </div>
     </div>
-    <div class="sub-section">
-      <div class="radio-group">
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="realtime">
-          <label class="form-check-label" for="flexSwitchCheckDefault">Realtime</label>
+    <div class="wrapper">
+        <div class="sub-section">
+          <div class="radio-group">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="realtime">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Realtime</label>
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="reid" checked>
+              <label class="form-check-label" for="flexSwitchCheckDefault1">Re-Identification</label>
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="heatmap" checked>
+              <label class="form-check-label" for="flexSwitchCheckDefault2">Heatmap</label>
+            </div>
+          </div>
+          <div class="select-group divide-half-hor" id="yolo">
+             <span>YOLO weight</span>
+             <select name='yolo_weights'>
+              <option value='' disabled selected>-- select --</option>
+              <option value='yolov5s.pt'>YOLOv5 small</option>
+              <option value='yolov5m.pt'>YOLOv5 medium</option>
+              <option value='yolov5l.pt'>YOLOv5 large</option>
+              <option value='yolov5x.pt'>YOLOv5 X-large</option>
+             </select>
+         </div>
+         <div class="select-group divide-half-hor" id="reid_model">
+            <span>Re-Identification model</span>
+            <select name='reid_model'>
+              <option value='' disabled selected>-- select --</option>
+              <option value='plr_osnet'>plr_osnet</option>
+              <option value='osnet_x1_0'>osnet_x1_0</option>
+              <option value='resnet50'>resnet50</option>
+              <option value='moco'>moco</option>
+            </select>
+         </div>
+         <div class="select-group divide-half-hor" id="ds_model">
+             <span>DeepSORT model</span>
+             <select name='deepsort_model'>
+              <option value='' disabled selected>-- select --</option>
+              <option value='ckpt.t7'>ckpt.t7(default)</option>
+             </select>
+         </div>
+         <div class="input-group divide-half-hor" id="frame_skip">
+             <span>Frame skip</span>
+             <input type="text" value="1">
+         </div>
+         <div class="input-group divide-half-hor" id="video_length">
+             <span>Input video length</span>
+             <input type="text" value="15">
+         </div>
+         <div class="input-group divide-half-hor" id="heatmap_cumul_sec">
+             <span>Heatmap 누적 seconds</span>
+             <input type="text" value="60">
+         </div>
+         <div class="input-group divide-half-hor" id="fps">
+             <span>Input video fps</span>
+             <input type="text" value="15">
+         </div>
+         <div class="input-group divide-half-hor" id="videos_num">
+             <span>The number of videos</span>
+             <input type="text" value="2">
+         </div>
+         <div class="input-group divide-half-hor" id="resol">
+             <span>Resolution</span>
+             <input type="text" value="640">
+         </div>
         </div>
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="reid" checked>
-          <label class="form-check-label" for="flexSwitchCheckDefault1">Re-Identification</label>
+        <div class="output-wrapper">
+            <h1>HELLOOOO</h1>
+            <img src="{{ url_for('static', filename='2021_11_24_22_41_0.png') }}" alt="">
         </div>
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="heatmap" checked>
-          <label class="form-check-label" for="flexSwitchCheckDefault2">Heatmap</label>
-        </div>
-      </div>
-      <div class="select-group divide-half-hor" id="yolo">
-         <span>YOLO weight</span>
-         <select name='yolo_weights'>
-          <option value='' disabled selected>-- select --</option>
-          <option value='yolov5s.pt'>YOLOv5 small</option>
-          <option value='yolov5m.pt'>YOLOv5 medium</option>
-          <option value='yolov5l.pt'>YOLOv5 large</option>
-          <option value='yolov5x.pt'>YOLOv5 X-large</option>
-         </select>
-     </div>
-     <div class="select-group divide-half-hor" id="reid_model">
-        <span>Re-Identification model</span>
-        <select name='reid_model'>
-          <option value='' disabled selected>-- select --</option>
-          <option value='plr_osnet'>plr_osnet</option>
-          <option value='osnet_x1_0'>osnet_x1_0</option>
-          <option value='resnet50'>resnet50</option>
-          <option value='moco'>moco</option>
-        </select>
-     </div>
-     <div class="select-group divide-half-hor" id="ds_model">
-         <span>DeepSORT model</span>
-         <select name='deepsort_model'>
-          <option value='' disabled selected>-- select --</option>
-          <option value='ckpt.t7'>ckpt.t7(default)</option>
-         </select>
-     </div>
-     <div class="input-group divide-half-hor" id="frame_skip">
-         <span>Frame skip</span>
-         <input type="text" value="1">
-     </div>
-     <div class="input-group divide-half-hor" id="video_length">
-         <span>Input video length</span>
-         <input type="text" value="15">
-     </div>
-     <div class="input-group divide-half-hor" id="heatmap_cumul_sec">
-         <span>Heatmap 누적 seconds</span>
-         <input type="text" value="60">
-     </div>
-     <div class="input-group divide-half-hor" id="fps">
-         <span>Input video fps</span>
-         <input type="text" value="15">
-     </div>
-     <div class="input-group divide-half-hor" id="videos_num">
-         <span>The number of videos</span>
-         <input type="text" value="2">
-     </div>
-     <div class="input-group divide-half-hor" id="resol">
-         <span>Resolution</span>
-         <input type="text" value="640">
-     </div>
     </div>
 
 
